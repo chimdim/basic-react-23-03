@@ -1,12 +1,9 @@
 import React, { PureComponent } from 'react'
+import toggleContent from '../decorators/hide-content'
 
 class Comments extends PureComponent {
-  state = {
-    isOpen: false
-  }
-
   render () {
-    const {article} = this.props
+    const {article, isOpen, toggleItem} = this.props
     let comments = ''
     let hasComments = article.comments && article.comments.length > 0
     if (hasComments) {
@@ -19,8 +16,8 @@ class Comments extends PureComponent {
       return (
         <div className="article-comments">
 
-          <h4>Comments <button onClick={this.toggleComments}>{this.state.isOpen ? 'hide' : 'show'}</button></h4>
-          {this.state.isOpen &&
+          <h4>Comments <button onClick={toggleItem}>{isOpen ? 'hide' : 'show'}</button></h4>
+          {isOpen &&
           <ul>
             {comments}
           </ul>
@@ -36,13 +33,6 @@ class Comments extends PureComponent {
       )
     }
   }
-
-  toggleComments = () => {
-    this.setState({
-        isOpen: !this.state.isOpen
-      }
-    )
-  }
 }
 
-export default Comments
+export default toggleContent(Comments)
