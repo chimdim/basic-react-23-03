@@ -4,6 +4,7 @@ import Chart from './components/chart'
 import UserForm from './components/user-form'
 import Select from 'react-select'
 import 'react-select/dist/react-select.css'
+import './app.css'
 
 class App extends Component {
     state = {

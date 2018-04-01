@@ -1,0 +1,14 @@
+.article-comments ul{
+	margin:0;
+	padding:0 0 0 10px;
+}
+.article-comments ul li{
+	list-style: none;
+	margin-bottom:10px;
+}
+li .comment-user{
+	font-weight:bold;
+}
+li .comment-text{
+	font-style: italic;
+}
