@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import Comments from './comments'
 
 class Article extends PureComponent {
   render () {
@@ -8,7 +9,8 @@ class Article extends PureComponent {
       <div>
         <h2>{article.title}</h2>
         <button onClick={() => toggleOpen(article.id)}>{isOpen ? 'close' : 'open'}</button>
-        {this.getBody()} {this.getComments()}
+        {this.getBody()}
+        <Comments article={article}/>
       </div>
     )
   }
@@ -22,34 +24,6 @@ class Article extends PureComponent {
         {article.text}
       </section>
     )
-  }
-
-  getComments () {
-    const {article} = this.props
-    let comments = ''
-    let hasComments = article.comments && article.comments.length > 0
-    if (hasComments) {
-      comments = article.comments.map(comments => (
-        <li key={comments.id}>
-          <div className="comment-user">{comments.user}</div>
-          <div className="comment-text">{comments.text}</div>
-        </li>
-      ))
-      return (
-        <div className="article-comments">
-          <h4>Comments</h4>
-          <ul>
-            {comments}
-          </ul>
-        </div>
-      )
-    } else {
-      return (
-        <div className="article-comments">
-          <h4>This article has no comments yet</h4>
-        </div>
-      )
-    }
   }
 }
 
