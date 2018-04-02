@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default ToggleComment => class NewComponent extends React.Component {
+export default ToggleItem => class NewComponent extends React.Component {
     state = {
         itemIsOpen: false
     }
@@ -9,12 +9,10 @@ export default ToggleComment => class NewComponent extends React.Component {
 
     render() {
         return(
-          <div>
-            <ToggleComment {...this.props}
+            <ToggleItem {...this.props}
                             isOpen = {this.state.itemIsOpen}
                             toggleItem = {this.toggleItem}
             />
-          </div>
         )
     }
 }

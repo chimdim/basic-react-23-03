@@ -4,7 +4,7 @@ import Comments from './comments'
 class Article extends PureComponent {
   render () {
     const {article, isOpen, toggleOpen} = this.props
-    console.log('---', 'rendering article')
+  //  console.log('---', 'rendering article')
     return (
       <div>
         <h2>{article.title}</h2>
